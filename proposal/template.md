@@ -38,9 +38,6 @@ Because the dataset is pre-processed, the focus will be on experimentation and m
 
 ## Deliverables
 
-* Detail what you intend to turn in for the final project. (Refer to the
-  documentation about the project to outline your deliverables.)
-
 1. **Jupyter Notebook:**
    A complete, runnable notebook demonstrating every step from data loading to model evaluation. The notebook will include visualizations of feature importance, confusion matrices, and comparative performance charts across models.
 

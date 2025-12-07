@@ -18,6 +18,7 @@ offline_processing/           ← preprocessing scripts & intermediate files
    extract_labels_tshark.py
    fix_pcap_safe.py
 requirements.txt              ← packages needed to run the notebook
+report/ ← the report folder. The html is under report/build/html/index.html
 ```
 
 The notebook only depends on the CSV file and the Python packages listed. Nothing in the offline folder needs to be executed to reproduce the results.

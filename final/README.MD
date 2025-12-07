@@ -2,7 +2,7 @@
 
 This project reproduces results from the **Mobile App Country of Origin** task in the nPrint benchmark. The goal is to predict whether a mobile application originated in **China**, **India**, or the **United States** using only its network traffic features.
 
-The original benchmark uses AutoGluon, but here I focus on a traditional machine-learning baseline (Random Forest) and compare it with other common models.
+The original benchmark uses AutoGluon, but here I focus on a traditional machine-learning baseline (Random Forest) and compare it with other common models. (I did include AutoGluon partially in the end.) 
 
 ---
 
@@ -55,6 +55,7 @@ Inside Jupyter, use **Kernel → Restart & Run All**. The notebook should run st
    * SVM (linear + RBF)
    * Gradient Boosting
    * KNN
+   * AutoGluon (simplified)
 7. Performs simple cross-validation
 8. Reports interpretation and conclusions
 
@@ -70,6 +71,8 @@ Random Forest achieves:
 Performance is consistent across CV folds.
 
 Gradient Boosting is close. Logistic Regression and linear SVM are slightly below. RBF SVM performs poorly on this dataset.
+
+AutoGluon is decent as well, with slightly higher balanced accuracy (~94%) than random forest.
 
 ---
 

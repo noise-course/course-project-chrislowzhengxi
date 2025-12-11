@@ -62,6 +62,13 @@ that contain purely identifying information, such as the string representation o
 address. I do not apply other preprocessing steps inside the notebook because nPrint has
 already produced a consistent feature space for supervised learning.
 
+To confirm that the split matches the expected benchmark setup, I also checked the
+resulting partitions directly. The train and test sets contain disjoint rows, and a
+simple index comparison shows that no samples appear in both groups. The class
+proportions in each split remain close to the original dataset because the split
+uses stratification. This small verification step helps ensure that no accidental
+leakage occurs and that the evaluation stays consistent with the benchmark design.
+
 The first model I train is a Random Forest classifier. It usually performs well on high
 dimensional feature spaces and requires very little additional preparation. I use accuracy
 and balanced accuracy as the main evaluation metrics. Balanced accuracy gives a clearer
@@ -136,7 +143,12 @@ selected models, reaching about 94 percent accuracy with balanced results across
 classes. Cross-validation confirmed that this performance is stable across different train-test
 splits. Simpler linear models (Logistic Regression) and Gradient Boosting also performed well, 
 while models that rely on strong assumptions about the feature space, such as the RBF SVM, 
-struggled with the high-dimensional sparse representation.
+struggled with the high-dimensional sparse representation. Although runtime was not a focus of this project, the models did differ slightly
+in training cost. Linear models trained the fastest, and the tree-based models
+required a bit more time because they explore larger sets of feature interactions.
+AutoGluon also trained quickly in this environment because only a subset of its
+usual backends was available. The differences were small enough that runtime did
+not play a major role in the model comparison.
 
 An additional experiment using AutoGluon showed that an automated ensemble of tree-based
 methods can push the accuracy slightly higher on the same features, without any manual tuning. 
